@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\ProductRepository;
 use App\Entity\Product;
+use App\Form\ProductType;
 
 class ProductController extends AbstractController {
   #[Route('/products', name: 'product_index')]
@@ -21,6 +22,14 @@ class ProductController extends AbstractController {
   public function show(Product $product): Response {
     return $this->render('product/show.html.twig', [
       'product' => $product
+    ]);
+  }
+
+  #[Route('/products/new', name: 'product_new')]
+  public function new(): Response {
+    $form = $this->createForm(ProductType::class);
+    return $this->render('product/new.html.twig', [
+      'form' => $form
     ]);
   }
 }

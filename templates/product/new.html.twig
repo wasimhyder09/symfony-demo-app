@@ -2,6 +2,11 @@
 
 {% block body %}
 <h1>Add product</h1>
-{{ form(form) }}
+{{ form_start(form) }}
+{{ form_row(form.name) }}
+{{ form_row(form.description) }}
+{{ form_row(form.size) }}
+{{ form_row(form.save, {'label': 'Save'}) }}
+{{ form_end(form) }}
 <p><a href="{{path('product_index')}}">Back to Products</a></p>
 {% endblock %}

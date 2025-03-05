@@ -6,5 +6,6 @@
 <p><strong>Description:</strong> {{ product.description }}</p>
 <p><strong>Size:</strong> {{ product.size }}</p>
 <a href="{{ path('product_edit', {'id': product.id}) }}">Edit</a>
+<a href="{{ path('product_delete', {'id': product.id}) }}">Delete</a>
 <a href="{{ path('product_index') }}">Back to Products</a>
 {% endblock %}
